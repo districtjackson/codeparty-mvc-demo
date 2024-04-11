@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import models.ViewTransitionModelInterface;
+import views.MainController;
 import models.ViewTransitionModel;
 
 public class Main extends Application {
@@ -21,6 +22,7 @@ public class Main extends Application {
 		
 		BorderPane view = loader.load();
 		ViewTransitionModelInterface model = new ViewTransitionModel();
+		MainController controller = loader.getController();
 		model.setMainView(view);
 		model.showLogin();
 		
