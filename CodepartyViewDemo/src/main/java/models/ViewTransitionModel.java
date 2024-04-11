@@ -52,7 +52,7 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 	}
 
 	@Override
-	public void showHome(String id) {
+	public void showHome() {
 		// TODO Auto-generated method stub
 		
 	}
