@@ -35,7 +35,7 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		
 	}
 	
-	public void showUserHome() {
+	public void showUser(String id) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("../views/userHome.fxml"));
 		
@@ -49,5 +49,11 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void showHome(String id) {
+		// TODO Auto-generated method stub
+		
 	}
 }

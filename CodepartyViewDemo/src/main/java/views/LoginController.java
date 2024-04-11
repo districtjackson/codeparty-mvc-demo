@@ -30,7 +30,7 @@ public class LoginController {
     	System.out.println("Transitioning");
     	if(model.attemptLogin(username, password)) {
     		
-    		transitionModel.showUserHome();
+    		transitionModel.showUser("123");
     	}else {
     		
     	}

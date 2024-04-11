@@ -5,5 +5,6 @@ import javafx.scene.layout.BorderPane;
 public interface ViewTransitionModelInterface {
 	public void setMainView(BorderPane mainView);
 	public void showLogin();
-	public void showUserHome();
+	public void showUser(String id);
+	public void showHome(String id);
 }
