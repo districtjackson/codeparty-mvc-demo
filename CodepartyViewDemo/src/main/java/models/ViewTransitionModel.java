@@ -61,8 +61,19 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 
 	@Override
 	public void showHome() {
-		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/homeView.fxml"));
 		
+		try {
+			Pane view = loader.load();
+			navView.setCenter(view);
+//			LoginController controller = loader.getController();
+//			LoginModel model = new LoginModel();
+			//controller.setModel(model);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
