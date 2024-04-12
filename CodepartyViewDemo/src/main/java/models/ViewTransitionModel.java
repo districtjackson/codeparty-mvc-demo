@@ -24,6 +24,10 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 	
 	private Map<String, Page> fakeData = new HashMap<>();
 	
+	public void setFakeData(Map<String, Page> fakeData) {
+		this.fakeData = fakeData;
+	}
+	
 	public void setMainView(BorderPane mainView) {
 		this.mainView = mainView;
 	}
