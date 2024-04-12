@@ -4,6 +4,8 @@
 package models.pages;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -13,10 +15,11 @@ import java.util.UUID;
 public abstract class Page {
 
 	private String id;
-	private ArrayList<String> links = new ArrayList<String>();
 	
 	private ArrayList<String> usersCanEdit = new ArrayList<String>();
 	private ArrayList<String> usersCanView = new ArrayList<String>();
+	
+	private Map<Class<?>, ArrayList<?>> links = new HashMap<>();
 
 	/**
 	 * @param id the id to set
@@ -28,7 +31,7 @@ public abstract class Page {
 	/**
 	 * @param links the links to set
 	 */
-	public void setLinks(ArrayList<String> links) {
+	public void setLinks(Map<Class<?>, ArrayList<?>> links) {
 		this.links = links;
 	}
 
@@ -80,13 +83,13 @@ public abstract class Page {
 		return id;
 	}
 	
-	public ArrayList<String> getLinks(){
+	public Map<Class<?>, ArrayList<?>> getLinks(){
 		return links;
 	}
 	
-	public void addLink(String id) {
-		links.add(id);
-	}
+//	public void addLink(String id) {
+//		links.add(id);
+//	}
 	
 	public void removeLink(String id) {
 		links.remove(id);

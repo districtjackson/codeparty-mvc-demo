@@ -1,12 +1,16 @@
 package models;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import main.Main;
+import models.pages.Page;
 import views.LoginController;
 import views.NavController;
 
@@ -17,6 +21,8 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 	SessionModel model = new SessionModel();
 	
 	String currentUserID;
+	
+	private Map<String, Page> fakeData = new HashMap<>();
 	
 	public void setMainView(BorderPane mainView) {
 		this.mainView = mainView;
@@ -68,7 +74,6 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 	@Override
 	public void showCurrentUser() {
 		this.showUser(currentUserID);
-		
 	}
 
 	// If coming from the login screen, which does not have the nav buttons, we need to create
@@ -91,5 +96,25 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public Page getObject(String id) {
+		return fakeData.get(id);
+	}
+
+	@Override
+	public ArrayList<Page> getAllObjectsOfType(Class<?> type) {
+		ArrayList<Page> returnData = new ArrayList<Page>();
+		
+		for(Map.Entry<String, Page> entry : fakeData.entrySet()) {
+			Page page = entry.getValue();
+			
+			if(page.getClass() == type) {
+				returnData.add(page);
+			}
+		}
+		
+		return returnData;
 	}
 }
