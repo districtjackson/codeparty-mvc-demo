@@ -4,8 +4,8 @@
 package models.pages;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -15,12 +15,11 @@ import java.util.UUID;
 public abstract class Page {
 
 	private String id;
-	private ArrayList<String> linksOld = new ArrayList<String>();
 	
 	private ArrayList<String> usersCanEdit = new ArrayList<String>();
 	private ArrayList<String> usersCanView = new ArrayList<String>();
 	
-	private Dictionary<Class<?>, ArrayList<?>> links = new Hashtable<>();
+	private Map<Class<?>, ArrayList<?>> links = new HashMap<>();
 
 	/**
 	 * @param id the id to set
@@ -32,7 +31,7 @@ public abstract class Page {
 	/**
 	 * @param links the links to set
 	 */
-	public void setLinks(Dictionary<Class<?>, ArrayList<?>> links) {
+	public void setLinks(Map<Class<?>, ArrayList<?>> links) {
 		this.links = links;
 	}
 
@@ -84,7 +83,7 @@ public abstract class Page {
 		return id;
 	}
 	
-	public Dictionary<Class<?>, ArrayList<?>> getLinks(){
+	public Map<Class<?>, ArrayList<?>> getLinks(){
 		return links;
 	}
 	
