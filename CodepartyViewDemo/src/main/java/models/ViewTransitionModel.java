@@ -16,6 +16,7 @@ import models.pages.Page;
 import views.LinkListCell;
 import views.LoginController;
 import views.NavController;
+import views.UserViewController;
 
 public class ViewTransitionModel implements ViewTransitionModelInterface {
 	
@@ -63,9 +64,10 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		try {
 			Pane view = loader.load();
 			navView.setCenter(view);
-			LoginController controller = loader.getController();
-			LoginModel model = new LoginModel();
-			//controller.setModel(model);
+			UserViewController controller = loader.getController();
+			controller.setModel(this);
+			controller.populateUser(id);
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
