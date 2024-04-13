@@ -34,7 +34,7 @@ public class Experience {
 	public Experience() {
 		this.id = UUID.randomUUID().toString();
 		this.company = new Company();
-		this.jobTitle = "Dude";
+		this.jobTitle = "Software Engineer";
 		this.startDate = new GregorianCalendar();
 		this.endDate = new GregorianCalendar();
 		this.description = "Man";

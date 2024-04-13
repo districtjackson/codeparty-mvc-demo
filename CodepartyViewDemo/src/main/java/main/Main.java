@@ -9,7 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import models.ViewTransitionModelInterface;
+import models.pages.Experience;
 import models.pages.Page;
+import models.pages.Person;
 import views.MainController;
 import models.ViewTransitionModel;
 
@@ -44,6 +46,12 @@ public class Main extends Application {
 		Map<String, Page> fakeData = new HashMap<>();
 		
 		// Insert fake objects here...
+		Person person = new Person("123");
+		person.setName("John Doe");
+		Experience exp = new Experience();
+		person.setCurrentCompany(exp);
+		person.setBio("I work hard in the day and in the night. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas pretium ex, quis luctus ligula blandit quis. Suspendisse mattis quis justo non egestas.");
+		fakeData.put("123",person);
 		
 		return fakeData;
 	}
