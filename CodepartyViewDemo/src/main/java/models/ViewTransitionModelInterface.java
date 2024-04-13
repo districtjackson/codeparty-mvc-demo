@@ -15,6 +15,10 @@ public interface ViewTransitionModelInterface {
 	public void showCurrentUser();
 	public void showUser(String id);
 	public void showHome();
+	public void showCompany(String id);
+	public void showSkill(String id);
+	public void showJobPosting(String id);
+	public void showList(ListModel model);
 	public Page getObject(String id);
 	public ArrayList<Page> getAllObjectsOfType(Class<?> type);
 }

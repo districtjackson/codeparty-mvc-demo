@@ -6,11 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Callback;
 import main.Main;
 import models.pages.Page;
+import views.LinkListCell;
 import views.LoginController;
 import views.NavController;
 
@@ -120,5 +123,50 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		}
 		
 		return returnData;
+	}
+
+	@Override
+	public void showList(ListModel model) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/listView.fxml"));
+	    try {
+	    	ListView<LinkData> view = loader.load();
+			navView.setCenter(view);
+			ViewTransitionModel transitionModel = this;
+	      
+			view.setCellFactory(new Callback<ListView<LinkData>, ListCell<LinkData>>()
+			  {
+
+				@Override
+				public ListCell<LinkData> call(ListView<LinkData> lv)
+				{
+					return new LinkListCell(transitionModel);
+				}
+			  });
+			
+			view.setItems(model.getItems());
+			
+	    } catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+		
+	}
+
+	@Override
+	public void showCompany(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showSkill(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showJobPosting(String id) {
+		// TODO Auto-generated method stub
+		
 	}
 }
