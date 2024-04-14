@@ -15,7 +15,6 @@ import models.pages.JobPosting;
 import models.pages.Page;
 import models.pages.Person;
 import models.pages.Skill;
-import views.MainController;
 import models.ViewTransitionModel;
 
 public class Main extends Application {

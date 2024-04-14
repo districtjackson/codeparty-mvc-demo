@@ -15,6 +15,7 @@ import java.util.UUID;
 public abstract class Page {
 
 	private String id;
+	private String name;
 	
 	private ArrayList<String> usersCanEdit = new ArrayList<String>();
 	private ArrayList<String> usersCanView = new ArrayList<String>();
@@ -155,6 +156,14 @@ public abstract class Page {
 		Page other = (Page) obj;
 		return Objects.equals(id, other.id) && Objects.equals(links, other.links)
 				&& Objects.equals(usersCanEdit, other.usersCanEdit) && Objects.equals(usersCanView, other.usersCanView);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

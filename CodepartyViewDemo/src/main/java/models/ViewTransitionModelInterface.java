@@ -19,10 +19,11 @@ public interface ViewTransitionModelInterface {
 	public void showCompany(String id);
 	public void showSkill(String id);
 	public void showJobPosting(String id);
-	public void showList(ListModel model);
 	public Page getObject(String id);
+	public <T extends Page> ArrayList<T> getAllObjectsOfType(Class<T> type);
+	public <T extends Page> void showListOfAll(Class<T> type);
+	public <T extends Page> void showListOfLinks(Page page, Class<T> type);
 	public Person getCurrentUser();
 	public ArrayList<Page> getLinksOf(String id, Class<? extends Page> linkType);
 	public void addLinkToCurrentUser(String idToAdd, Class<? extends Page> linkType);
-	public ArrayList<Page> getAllObjectsOfType(Class<?> type);
 }
