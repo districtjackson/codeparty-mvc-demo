@@ -200,19 +200,25 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 
 	@Override
 	public <T extends Page> void showListOfLinks(Page page, Class<T> type) {
-		ArrayList<Page> links = page.getLinks().get(type);
+		ArrayList<String> links = page.getLinks().get(type);
+		ArrayList<T> pages = new ArrayList<T>();
+		
+		for(String link : links) {
+			try {
+				
+				@SuppressWarnings("unchecked")
+				T object = (T) getObject(link);
+				
+				pages.add(object);
+				
+			} catch (Exception E) {
+		    			
+		    }
+		}
 		
 		ListModel listModel = new ListModel();
-    	for(Page receivedPage : links) {
-    		try {
-    			@SuppressWarnings("unchecked")
-				T castPage = (T) receivedPage;
-        		
-        		listModel.addItem(new LinkData(castPage.getName(), castPage.getID(), Person.class));
-    		} catch (Exception E) {
-    			
-    		}
-			
+    	for(Page receivedPage : pages) {
+        	listModel.addItem(new LinkData(receivedPage.getName(), receivedPage.getID(), Person.class));
     	}
     	
     	this.showList(listModel);
