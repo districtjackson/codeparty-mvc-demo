@@ -19,7 +19,7 @@ public abstract class Page {
 	private ArrayList<String> usersCanEdit = new ArrayList<String>();
 	private ArrayList<String> usersCanView = new ArrayList<String>();
 	
-	private Map<Class<?>, ArrayList<Page>> links = new HashMap<>();
+	private Map<Class<?>, ArrayList<String>> links = new HashMap<>();
 
 	/**
 	 * @param id the id to set
@@ -31,7 +31,7 @@ public abstract class Page {
 	/**
 	 * @param links the links to set
 	 */
-	public void setLinks(Map<Class<?>, ArrayList<Page>> links) {
+	public void setLinks(Map<Class<?>, ArrayList<String>> links) {
 		this.links = links;
 	}
 
@@ -83,16 +83,16 @@ public abstract class Page {
 		return id;
 	}
 	
-	public Map<Class<?>, ArrayList<Page>> getLinks(){
+	public Map<Class<?>, ArrayList<String>> getLinks(){
 		return links;
 	}
 	
-	public void addLink(Class<?> type, Page page) {
-		links.get(type).add(page);
+	public void addLink(Class<?> type, String id) {
+		links.get(type).add(id);
 	}
 	
-	public void removeLink(Class<?> type, Page page) {
-		links.get(type).remove(page);
+	public void removeLink(Class<?> type, String id) {
+		links.get(type).remove(id);
 	}
 	
 	public boolean canEdit(String ID) {
