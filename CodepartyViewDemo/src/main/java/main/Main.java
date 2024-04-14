@@ -12,7 +12,6 @@ import models.ViewTransitionModelInterface;
 import models.pages.Experience;
 import models.pages.Page;
 import models.pages.Person;
-import views.MainController;
 import models.ViewTransitionModel;
 
 public class Main extends Application {

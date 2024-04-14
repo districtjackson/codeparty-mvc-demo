@@ -6,10 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import models.ViewTransitionModel;
 import models.pages.Person;
+import models.pages.Skill;
 
 	public class UserViewController {
 
 		ViewTransitionModel model;
+		Person person;
 		
 		public void setModel(ViewTransitionModel model)
 		{
@@ -17,7 +19,7 @@ import models.pages.Person;
 		}
 		
 		public void populateUser(String id) {
-			Person person = (Person)model.getObject(id);
+			person = (Person)model.getObject(id);
 			
 			if(person!=null)
 			{
@@ -61,17 +63,17 @@ import models.pages.Person;
 
 	    @FXML
 	    void onFriendsListClick(ActionEvent event) {
-
+	    	model.showListOfLinks(person, Person.class);
 	    }
 
 	    @FXML
 	    void onProjectsListClick(ActionEvent event) {
-
+	    	
 	    }
 
 	    @FXML
 	    void onSkillsListClick(ActionEvent event) {
-
+	    	model.showListOfLinks(person, Skill.class);
 	    }
 
 	}

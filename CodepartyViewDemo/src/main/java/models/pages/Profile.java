@@ -12,20 +12,11 @@ public abstract class Profile extends Page {
 	
 	public Profile() {
 		super();
-		name = "Jerryitric";
 		bio = "Hey, hi, I'm the problem its me";
 	}
 
-	private String name;
 	private String bio;
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getBio() {
 		return bio;
@@ -39,7 +30,7 @@ public abstract class Profile extends Page {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(bio, name);
+		result = prime * result + Objects.hash(bio);
 		return result;
 	}
 
@@ -52,7 +43,7 @@ public abstract class Profile extends Page {
 		if (getClass() != obj.getClass())
 			return false;
 		Profile other = (Profile) obj;
-		return Objects.equals(bio, other.bio) && Objects.equals(name, other.name);
+		return Objects.equals(bio, other.bio);
 	}
 	
 

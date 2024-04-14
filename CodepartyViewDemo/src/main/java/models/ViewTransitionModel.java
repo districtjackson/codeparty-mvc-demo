@@ -13,6 +13,8 @@ import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import main.Main;
 import models.pages.Page;
+import models.pages.Person;
+import views.HomeController;
 import views.LinkListCell;
 import views.LoginController;
 import views.NavController;
@@ -82,8 +84,8 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		try {
 			Pane view = loader.load();
 			navView.setCenter(view);
-//			LoginController controller = loader.getController();
-//			LoginModel model = new LoginModel();
+			HomeController controller = loader.getController();
+			controller.setModel(this);
 			//controller.setModel(model);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -124,11 +126,12 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 	}
 
 	@Override
-	public ArrayList<Page> getAllObjectsOfType(Class<?> type) {
-		ArrayList<Page> returnData = new ArrayList<Page>();
+	public <T extends Page> ArrayList<T> getAllObjectsOfType(Class<T> type) {
+		ArrayList<T> returnData = new ArrayList<T>();
 		
 		for(Map.Entry<String, Page> entry : fakeData.entrySet()) {
-			Page page = entry.getValue();
+			@SuppressWarnings("unchecked")
+			T page = (T) entry.getValue();
 			
 			if(page.getClass() == type) {
 				returnData.add(page);
@@ -138,8 +141,7 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		return returnData;
 	}
 
-	@Override
-	public void showList(ListModel model) {
+	private void showList(ListModel model) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("../views/listView.fxml"));
 	    try {
@@ -180,6 +182,35 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 	@Override
 	public void showJobPosting(String id) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <T extends Page> void showListOfAll(Class<T> type) {
+		ArrayList<T> pages = this.getAllObjectsOfType(type);
+    	
+    	ListModel listModel = new ListModel();
+    	for(T page : pages) {
+    		listModel.addItem(new LinkData(page.getName(), page.getID(), Person.class));
+    	}
+    	
+    	this.showList(listModel);
+		
+	}
+
+	@Override
+	public <T extends Page> void showListOfLinks(Page page, Class<T> type) {
+		ArrayList<Page> links = page.getLinks().get(type);
+		
+		ListModel listModel = new ListModel();
+    	for(Page receivedPage : links) {
+    		@SuppressWarnings("unchecked")
+			T castPage = (T) receivedPage;
+    		
+    		listModel.addItem(new LinkData(castPage.getName(), castPage.getID(), Person.class));
+    	}
+    	
+    	this.showList(listModel);
 		
 	}
 }
