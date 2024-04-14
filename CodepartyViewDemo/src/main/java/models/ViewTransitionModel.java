@@ -189,4 +189,9 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		return (Person) getObject(currentUserID);
 	}
 
+	@Override
+	public ArrayList<Page> getLinksOf(String id, Class<? extends Page> linkType) {
+		return getObject(id).getLinks().get(linkType);
+	}
+
 }

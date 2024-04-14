@@ -22,5 +22,6 @@ public interface ViewTransitionModelInterface {
 	public void showList(ListModel model);
 	public Page getObject(String id);
 	public Person getCurrentUser();
+	public ArrayList<Page> getLinksOf(String id, Class<? extends Page> linkType);
 	public ArrayList<Page> getAllObjectsOfType(Class<?> type);
 }
