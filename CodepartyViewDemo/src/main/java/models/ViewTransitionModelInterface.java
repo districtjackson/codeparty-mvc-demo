@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javafx.scene.layout.BorderPane;
 import models.pages.Page;
+import models.pages.Person;
 
 public interface ViewTransitionModelInterface {
 	public void setFakeData(Map<String, Page> fakeData);
@@ -20,5 +21,6 @@ public interface ViewTransitionModelInterface {
 	public void showJobPosting(String id);
 	public void showList(ListModel model);
 	public Page getObject(String id);
+	public Person getCurrentUser();
 	public ArrayList<Page> getAllObjectsOfType(Class<?> type);
 }

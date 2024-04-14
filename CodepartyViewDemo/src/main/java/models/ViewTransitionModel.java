@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import main.Main;
 import models.pages.Page;
+import models.pages.Person;
 import views.LinkListCell;
 import views.LoginController;
 import views.NavController;
@@ -182,4 +183,10 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Person getCurrentUser() {
+		return (Person) getObject(currentUserID);
+	}
+
 }
