@@ -204,10 +204,15 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		
 		ListModel listModel = new ListModel();
     	for(Page receivedPage : links) {
-    		@SuppressWarnings("unchecked")
-			T castPage = (T) receivedPage;
-    		
-    		listModel.addItem(new LinkData(castPage.getName(), castPage.getID(), Person.class));
+    		try {
+    			@SuppressWarnings("unchecked")
+				T castPage = (T) receivedPage;
+        		
+        		listModel.addItem(new LinkData(castPage.getName(), castPage.getID(), Person.class));
+    		} catch (Exception E) {
+    			
+    		}
+			
     	}
     	
     	this.showList(listModel);
