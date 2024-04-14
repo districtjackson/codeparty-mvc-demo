@@ -199,4 +199,9 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 		return links;
 	}
 
+	@Override
+	public void addLinkToCurrentUser(String idToAdd, Class<? extends Page> linkType) {
+		getCurrentUser().addLink(linkType, idToAdd);
+	}
+
 }
