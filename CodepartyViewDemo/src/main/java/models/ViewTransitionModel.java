@@ -218,4 +218,23 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
     	this.showList(listModel);
 		
 	}
+
+	public Person getCurrentUser() {
+		return (Person) getObject(currentUserID);
+	}
+
+	@Override
+	public ArrayList<Page> getLinksOf(String id, Class<? extends Page> linkType) {
+		ArrayList<String> linkIDs = getObject(id).getLinks().get(linkType);
+		ArrayList<Page> links = new ArrayList<>();
+		for (String linkID : linkIDs) {
+			links.add(getObject(linkID));
+		}
+		return links;
+	}
+
+	@Override
+	public void addLinkToCurrentUser(String idToAdd, Class<? extends Page> linkType) {
+		getCurrentUser().addLink(linkType, idToAdd);
+	}
 }

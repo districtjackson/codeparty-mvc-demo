@@ -13,17 +13,17 @@ public class Experience {
 	}
 
 	private String id;
-	private Company company;
+	private String companyID;
 	private String jobTitle;
 	private GregorianCalendar startDate;
 	private GregorianCalendar endDate;
 	private String description;
 	
-	public Experience(String id, Company company, String jobTitle, GregorianCalendar startDate, 
+	public Experience(String id, String companyID, String jobTitle, GregorianCalendar startDate, 
 			GregorianCalendar endDate, String description) {
 		
 		this.id = id;
-		this.company = company;
+		this.companyID = companyID;
 		this.jobTitle = jobTitle;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -33,7 +33,7 @@ public class Experience {
 	
 	public Experience() {
 		this.id = UUID.randomUUID().toString();
-		this.company = new Company();
+		this.companyID = "";
 		this.jobTitle = "Software Engineer";
 		this.startDate = new GregorianCalendar();
 		this.endDate = new GregorianCalendar();
@@ -44,12 +44,12 @@ public class Experience {
 		return id;
 	}
 
-	public Company getCompany() {
-		return company;
+	public String getCompanyID() {
+		return companyID;
 	}
 
-	public void setCompany(Company company) {
-		this.company = company;
+	public void setCompanyID(String companyID) {
+		this.companyID = companyID;
 	}
 
 	public String getJobTitle() {
@@ -86,7 +86,7 @@ public class Experience {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(company, description, endDate, id, jobTitle, startDate);
+		return Objects.hash(companyID, description, endDate, id, jobTitle, startDate);
 	}
 
 	@Override
@@ -98,7 +98,7 @@ public class Experience {
 		if (getClass() != obj.getClass())
 			return false;
 		Experience other = (Experience) obj;
-		return Objects.equals(company, other.company) && Objects.equals(description, other.description)
+		return Objects.equals(companyID, other.companyID) && Objects.equals(description, other.description)
 				&& Objects.equals(endDate, other.endDate) && Objects.equals(id, other.id)
 				&& Objects.equals(jobTitle, other.jobTitle) && Objects.equals(startDate, other.startDate);
 	}

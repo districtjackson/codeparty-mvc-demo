@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javafx.scene.layout.BorderPane;
 import models.pages.Page;
+import models.pages.Person;
 
 public interface ViewTransitionModelInterface {
 	public void setFakeData(Map<String, Page> fakeData);
@@ -22,4 +23,7 @@ public interface ViewTransitionModelInterface {
 	public <T extends Page> ArrayList<T> getAllObjectsOfType(Class<T> type);
 	public <T extends Page> void showListOfAll(Class<T> type);
 	public <T extends Page> void showListOfLinks(Page page, Class<T> type);
+	public Person getCurrentUser();
+	public ArrayList<Page> getLinksOf(String id, Class<? extends Page> linkType);
+	public void addLinkToCurrentUser(String idToAdd, Class<? extends Page> linkType);
 }
