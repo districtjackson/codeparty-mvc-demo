@@ -1,5 +1,6 @@
 package models.pages;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Company extends Profile {
@@ -10,12 +11,18 @@ public class Company extends Profile {
 	public Company(String id) {
 		super(id);
 		// TODO Auto-generated constructor stub
+		links.put(Person.class, new ArrayList<String>());
+		links.put(Skill.class, new ArrayList<String>());
+		links.put(JobPosting.class, new ArrayList<String>());
 	}
 	
 	public Company() {
 		super();
 		tagline = "We are good";
 		// TODO Auto-generated constructor stub
+		links.put(Person.class, new ArrayList<String>());
+		links.put(Skill.class, new ArrayList<String>());
+		links.put(JobPosting.class, new ArrayList<String>());		
 	}
 
 	public String getTagline() {

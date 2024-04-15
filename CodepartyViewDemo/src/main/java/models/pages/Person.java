@@ -11,6 +11,9 @@ public class Person extends Profile {
 	
 	public Person(String id) {
 		super(id);
+		links.put(Person.class, new ArrayList<String>());
+		links.put(Skill.class, new ArrayList<String>());
+		links.put(Project.class, new ArrayList<String>());
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -18,6 +21,9 @@ public class Person extends Profile {
 		super();
 		currentCompany = new Experience();
 		type = PersonType.BASE;
+		links.put(Person.class, new ArrayList<String>());
+		links.put(Skill.class, new ArrayList<String>());
+		links.put(Project.class, new ArrayList<String>());
 	}
 
 	public Experience getCurrentCompany() {

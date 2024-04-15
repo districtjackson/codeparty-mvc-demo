@@ -1,5 +1,6 @@
 package models.pages;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Skill extends Profile {
@@ -10,11 +11,15 @@ public class Skill extends Profile {
 	public Skill(String id) {
 		super(id);
 		// TODO Auto-generated constructor stub
+		links.put(Person.class, new ArrayList<String>());
+		links.put(Skill.class, new ArrayList<String>());
 	}
 	
 	public Skill() {
 		super();
 		tagline = "here I am. Rock me like a hurricane";
+		links.put(Person.class, new ArrayList<String>());
+		links.put(Skill.class, new ArrayList<String>());
 	}
 	
 	public static Class<?>[] getAllowedLinks() {

@@ -1,4 +1,5 @@
 package models.pages;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Objects;
 import java.util.UUID;
@@ -24,6 +25,7 @@ public class JobPosting extends Page {
 		super(id);
 		this.companyID = companyID;
 		// TODO Auto-generated constructor stub
+		links.put(Skill.class, new ArrayList<String>());
 	}
 	
 	public JobPosting() {
@@ -35,6 +37,7 @@ public class JobPosting extends Page {
 		this.datePosted = new GregorianCalendar();
 		this.expiryDate = new GregorianCalendar();
 		// TODO Auto-generated constructor stub
+		links.put(Skill.class, new ArrayList<String>());
 	}
 	
 	public static Class<?>[] getAllowedLinks() {

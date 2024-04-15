@@ -20,7 +20,7 @@ public abstract class Page {
 	private ArrayList<String> usersCanEdit = new ArrayList<String>();
 	private ArrayList<String> usersCanView = new ArrayList<String>();
 	
-	private Map<Class<?>, ArrayList<String>> links = new HashMap<>();
+	protected Map<Class<?>, ArrayList<String>> links = new HashMap<>();
 
 	/**
 	 * @param id the id to set
