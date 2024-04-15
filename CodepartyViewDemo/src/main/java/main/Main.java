@@ -65,7 +65,7 @@ public class Main extends Application {
 				+ "Suspendisse mattis quis justo non egestas.");
 		Experience exp1 = new Experience();
 		person0.setCurrentCompany(exp1);
-		person1.addLink(Person.class, "123");
+		//person1.addLink(Person.class, "123");
 		person0.addLink(Person.class, "101");
 		fakeData.put("101",person1);
 		Person person2 = new Person("102");
