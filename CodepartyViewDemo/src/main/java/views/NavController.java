@@ -19,7 +19,7 @@ public class NavController {
 
     @FXML
     void onProfileClicked(ActionEvent event) {
-    	model.showUser(null);
+    	model.showCurrentUser();
     }
 
 }

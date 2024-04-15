@@ -57,6 +57,7 @@ public class Main extends Application {
 				+ "Donec egestas pretium ex, quis luctus ligula blandit quis. "
 				+ "Suspendisse mattis quis justo non egestas.");
 		fakeData.put("123",person0);
+		person0.addEditor("123");
 		Person person1 = new Person("101");
 		person1.setName("Jane Smith");
 		person1.setBio("Jane is an aspiring artist who loves to paint landscapes in her free time."

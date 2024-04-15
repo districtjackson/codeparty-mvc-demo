@@ -9,6 +9,7 @@ public class Person extends Profile {
 	private ArrayList<Experience> experiences = new ArrayList<Experience>();
 	private PersonType type;
 	
+	
 	public Person(String id) {
 		super(id);
 		links.put(Person.class, new ArrayList<String>());

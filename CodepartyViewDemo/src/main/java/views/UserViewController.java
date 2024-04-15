@@ -31,6 +31,10 @@ import models.pages.Skill;
 				
 			}
 			
+			if(!model.canEdit(person)) {
+				editButton.setVisible(false);
+			}
+			
 		}
 		
 	
@@ -58,7 +62,7 @@ import models.pages.Skill;
 
 	    @FXML
 	    void onEditButtonClick(ActionEvent event) {
-
+	    	model.showUserEdit(person.getID());
 	    }
 
 	    @FXML

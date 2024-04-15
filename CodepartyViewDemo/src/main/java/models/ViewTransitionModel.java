@@ -14,10 +14,15 @@ import javafx.util.Callback;
 import main.Main;
 import models.pages.Page;
 import models.pages.Person;
+import views.CompanyController;
+import views.CompanyEditController;
 import views.HomeController;
 import views.LinkListCell;
 import views.LoginController;
 import views.NavController;
+import views.SkillController;
+import views.SkillEditController;
+import views.UserEditController;
 import views.UserViewController;
 
 public class ViewTransitionModel implements ViewTransitionModelInterface {
@@ -169,13 +174,39 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 
 	@Override
 	public void showCompany(String id) {
-		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/companyView.fxml"));
+		
+		try {
+			Pane view = loader.load();
+			navView.setCenter(view);
+			CompanyController controller = loader.getController();
+			controller.setModel(this);
+			controller.populateCompany(id);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void showSkill(String id) {
-		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/skillView.fxml"));
+		
+		try {
+			Pane view = loader.load();
+			navView.setCenter(view);
+			SkillController controller = loader.getController();
+			controller.setModel(this);
+			controller.populateSkill(id);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -242,5 +273,82 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 	@Override
 	public void addLinkToCurrentUser(String idToAdd, Class<? extends Page> linkType) {
 		getCurrentUser().addLink(linkType, idToAdd);
+	}
+
+	@Override
+	public void showUserEdit(String id) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/userEditView.fxml"));
+		
+		try {
+			Pane view = loader.load();
+			navView.setCenter(view);
+			UserEditController controller = loader.getController();
+			controller.setModel(this);
+			controller.populateUser(id);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void showCompanyEdit(String id) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/companyEditView.fxml"));
+		
+		try {
+			Pane view = loader.load();
+			navView.setCenter(view);
+			CompanyEditController controller = loader.getController();
+			controller.setModel(this);
+			controller.populateCompany(id);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void showSkillEdit(String id) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/skillEditview.fxml"));
+		
+		try {
+			Pane view = loader.load();
+			navView.setCenter(view);
+			SkillEditController controller = loader.getController();
+			controller.setModel(this);
+			controller.populateSkill(id);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void showJobPostingEdit(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean canEdit(Page page) {
+		ArrayList<String> editors = page.getUsersCanEdit();
+		
+		for(String editor : editors) {
+			if(editor.equals(currentUserID)) {
+				return true;
+			}
+		}
+		
+		return false;
+		
 	}
 }

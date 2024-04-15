@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.SkillEditController">
    <top>
       <StackPane prefHeight="155.0" BorderPane.alignment="CENTER">
          <children>
@@ -59,7 +59,7 @@
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="nameText" />
             <Label text="Tag Line: " textFill="GREY" underline="true">
                <padding>
                   <Insets left="25.0" top="10.0" />
@@ -68,7 +68,7 @@
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="taglineText" />
             <Label text="Bio:" textFill="GREY" underline="true">
                <padding>
                   <Insets left="25.0" top="10.0" />
@@ -77,7 +77,7 @@
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="bioText" />
             <Separator maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="50.0" />
          </children>
       </VBox>
