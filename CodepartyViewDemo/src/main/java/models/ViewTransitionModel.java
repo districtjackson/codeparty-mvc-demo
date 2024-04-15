@@ -17,6 +17,8 @@ import models.pages.Person;
 import views.CompanyController;
 import views.CompanyEditController;
 import views.HomeController;
+import views.JobController;
+import views.JobEditController;
 import views.LinkListCell;
 import views.LoginController;
 import views.NavController;
@@ -212,7 +214,20 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 
 	@Override
 	public void showJobPosting(String id) {
-		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/jobPostingView.fxml"));
+		
+		try {
+			Pane view = loader.load();
+			navView.setCenter(view);
+			JobController controller = loader.getController();
+			controller.setModel(this);
+			controller.populateJob(id);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -222,7 +237,8 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
     	
     	ListModel listModel = new ListModel();
     	for(T page : pages) {
-    		listModel.addItem(new LinkData(page.getName(), page.getID(), Person.class));
+    		listModel.addItem(new LinkData(page.getName(), page.getID(), type));
+    		System.out.println(page.getID());
     	}
     	
     	this.showList(listModel);
@@ -334,7 +350,20 @@ public class ViewTransitionModel implements ViewTransitionModelInterface {
 
 	@Override
 	public void showJobPostingEdit(String id) {
-		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/jobPostingEditView.fxml"));
+		
+		try {
+			Pane view = loader.load();
+			navView.setCenter(view);
+			JobEditController controller = loader.getController();
+			controller.setModel(this);
+			controller.populateJob(id);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

@@ -49,13 +49,13 @@ public class Main extends Application {
 		
 		// Insert fake objects here...
 		Person person0 = new Person("123");
-		person0.setName("John Doe");
+		person0.setName("Michael Bradshaw");
 		Experience exp0 = new Experience();
 		person0.setCurrentCompany(exp0);
 		person0.setBio("I work hard in the day and in the night. "
 				+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
 				+ "Donec egestas pretium ex, quis luctus ligula blandit quis. "
-				+ "Suspendisse mattis quis justo non egestas.");
+				+ "Suspendisse mattis quis justo noon egestas.");
 		fakeData.put("123",person0);
 		person0.addEditor("123");
 		Person person1 = new Person("101");
@@ -65,8 +65,8 @@ public class Main extends Application {
 				+ "Donec egestas pretium ex, quis luctus ligula blandit quis. "
 				+ "Suspendisse mattis quis justo non egestas.");
 		Experience exp1 = new Experience();
-		person0.setCurrentCompany(exp1);
-		//person1.addLink(Person.class, "123");
+		person1.setCurrentCompany(exp1);
+		person1.addLink(Person.class, "123");
 		person0.addLink(Person.class, "101");
 		fakeData.put("101",person1);
 		Person person2 = new Person("102");
@@ -76,7 +76,7 @@ public class Main extends Application {
 				+ "Donec egestas pretium ex, quis luctus ligula blandit quis. "
 				+ "Suspendisse mattis quis justo non egestas.");
 		Experience exp2 = new Experience();
-		person0.setCurrentCompany(exp2);
+		person2.setCurrentCompany(exp2);
 		person2.addLink(Person.class, "123");
 		person0.addLink(Person.class, "102");
 		person2.addLink(Person.class, "101");
@@ -103,10 +103,10 @@ public class Main extends Application {
 		person0.addLink(Skill.class, "200");
 		skill0.addLink(Person.class, "101");
 		person1.addLink(Skill.class, "200");
-		fakeData.put("201", skill0);
+		fakeData.put("200", skill0);
 		Skill skill1 = new Skill("201");
-		skill0.setName("Problem-Solving");
-		skill0.setBio("Capability to analyze complex issues and devise effective solutions "
+		skill1.setName("Problem-Solving");
+		skill1.setBio("Capability to analyze complex issues and devise effective solutions "
 				+ "using logical reasoning and creativity. "
 				+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
 				+ "Donec egestas pretium ex, quis luctus ligula blandit quis.");
@@ -116,8 +116,8 @@ public class Main extends Application {
 		person2.addLink(Skill.class, "201");
 		fakeData.put("201", skill1);
 		Skill skill2 = new Skill("202");
-		skill0.setName("Agile");
-		skill0.setBio("Experience with Agile practices like Scrum or Kanban, "
+		skill2.setName("Agile");
+		skill2.setBio("Experience with Agile practices like Scrum or Kanban, "
 				+ "enabling efficient project management and adaptation to change. "
 				+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
 				+ "Donec egestas pretium ex, quis luctus ligula blandit quis.");
@@ -125,7 +125,7 @@ public class Main extends Application {
 		person2.addLink(Skill.class, "202");
 		skill2.addLink(Person.class, "103");
 		person3.addLink(Skill.class, "203");
-		fakeData.put("201", skill2);
+		fakeData.put("202", skill2);
 		
 		Company company0 = new Company("300");
 		company0.setName("NovaTech Solutions, Inc.");
@@ -155,10 +155,10 @@ public class Main extends Application {
 				+ "including freight forwarding, warehousing, and distribution.");
 		company2.addLink(Person.class, "103");
 		exp3.setCompanyID("302");
-		fakeData.put("301", company2);
+		fakeData.put("302", company2);
 		
 		JobPosting job0 = new JobPosting("400", "300");
-		job0.setJobName("Senior Software Engineer");
+		job0.setName("Senior Software Engineer");
 		job0.setBody("NovaTech Solutions is seeking a Senior Software Engineer to join our dynamic team. "
 				+ "The ideal candidate will have a strong background in software development, "
 				+ "with proficiency in coding languages and a proven track record of delivering successful projects. "
@@ -169,7 +169,7 @@ public class Main extends Application {
 		job0.addLink(Skill.class, "202");
 		fakeData.put("400", job0);
 		JobPosting job1 = new JobPosting("401", "301");
-		job1.setJobName("Environmental Scientist");
+		job1.setName("Environmental Scientist");
 		job1.setBody("GreenEco Ventures is seeking an Environmental Scientist to join our passionate team. "
 				+ "The successful candidate will conduct research, analyze data, and develop strategies to "
 				+ "address environmental challenges and promote sustainable practices. "
@@ -178,9 +178,9 @@ public class Main extends Application {
 				+ "If you are a dedicated environmental professional with a drive to make a difference, "
 				+ "we encourage you to apply.");
 		job1.addLink(Skill.class, "202");
-		fakeData.put("400", job1);
+		fakeData.put("401", job1);
 		JobPosting job2 = new JobPosting("402", "302");
-		job2.setJobName("Logistics Coordinator");
+		job2.setName("Logistics Coordinator");
 		job2.setBody("Skyward Logistics Group is seeking a Logistics Coordinator to join our fast-paced environment. "
 				+ "The ideal candidate will be responsible for coordinating transportation, managing inventory, "
 				+ "and liaising with clients and suppliers to ensure timely delivery of goods. "
